@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #09090b;
+  --color-primary: #95bfbc;
+  --color-border: #e4e4e7;
+  --color-destructive: #ef4444;
+  --color-hover: #f3f4f6;
+
+  --font-figtree: "Figtree", sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply h-full w-full bg-background text-foreground font-figtree;
+  }
+}
+
+@layer utilities {
+  .fluid {
+    @apply max-w-3xl mx-auto;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply flex items-center justify-center w-full gap-1 font-bold py-2 px-3 rounded-xl bg-primary text-white cursor-pointer hover:bg-primary/90 active:bg-primary/80 transition-colors duration-200 disabled:bg-primary/50 disabled:cursor-not-allowed outline-none text-sm;
+  }
+
+  .btn-destructive {
+    @apply bg-destructive hover:bg-destructive/80 text-white;
+  }
+
+  .btn-ghost {
+    @apply hover:bg-hover bg-transparent text-black disabled:opacity-60 disabled:bg-hover;
+  }
+
+  .btn-ghost-destructive {
+    @apply text-destructive hover:bg-destructive/5 bg-transparent disabled:bg-destructive/5 disabled:opacity-60;
+  }
+
+  .btn-icon {
+    @apply hover:bg-hover size-8 rounded-full bg-transparent p-0 text-black;
+  }
+}
+
+.Toastify__toast {
+  @apply rounded-xl font-medium! font-figtree text-foreground! border shadow-none;
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--error {
+  @apply bg-background! text-destructive!;
+}
+
+.Toastify__close-button {
+  @apply text-black!;
+}
